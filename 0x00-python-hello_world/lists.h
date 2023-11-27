@@ -17,4 +17,4 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
-#endif
+#endif /* LISTS_H */
