@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def islower(c):
     return ord('a') <= ord(c) <= ord('z')
-character = 'g'
+character = 'a'
 if islower(character):
     print('True')
 else:
