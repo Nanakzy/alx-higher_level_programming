@@ -8,8 +8,8 @@ def uppercase(input_str):
             uppercase_char = char
         result_str += uppercase_char
 
-
     print("{}".format(result_str))
+
 
 if __name__ == "__main__":
     uppercase("best")
