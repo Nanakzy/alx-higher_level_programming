@@ -7,6 +7,8 @@ def uppercase(input_str):
         else:
             uppercase_char = char
         result_str += uppercase_char
+
+
     print("{}".format(result_str))
 
 if __name__ == "__main__":
