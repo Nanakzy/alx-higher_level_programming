@@ -8,6 +8,7 @@ def print_module_names(module_name):
     for name in sorted(names):
         print(name)
 
+
 if __name__ == "__main__":
     module_name = "hidden_4"
     print_module_names(module_name)
