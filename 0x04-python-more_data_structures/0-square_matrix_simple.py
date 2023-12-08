@@ -1,12 +1,6 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    new_matrix = []
-    for row in matrix:
-        new_row = []
-        for value in row:
-            if isinstance(value, (int, float)):
-                new_row.append(value * value)
-            else:
-                new_row.append(value)
-            new_matrix.append(new_row)
-            return new_matrix
+    new_matrix = matrix.copy()
+    for i in range(len(matrix)):
+        new_matrix[i] = list(map(lambda x: x**2, matrix[1]))
+    return new_matrix
