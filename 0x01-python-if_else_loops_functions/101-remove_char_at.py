@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-def remove_char_at(str, n):
-    if n < 0:
-        return str
+def remove_char_at(string, n):
+    if n < 0 or n >= len(string):
+        return string
     else:
-        return str[:n] + str[n+1:]
+        return string[:n] + string[n+1:]
