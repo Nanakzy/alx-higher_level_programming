@@ -1,0 +1,57 @@
+#!/usr/bin/python3
+
+How to Use 0-add_integer.py
+===========================
+
+This module defines an integer addition function ``add_integer(a, b=98)``.
+
+# Test cases for add_integer function
+
+# Test Case 1
+# Adding two positive integers
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+
+# Test Case 2
+# Adding a positive and a negative integer
+>>> add_integer(100, -2)
+98
+
+# Test Case 3
+# Adding a single integer (use of default value)
+>>> add_integer(2)
+100
+
+# Test Case 4
+# Adding a float and a negative integer
+>>> add_integer(100.3, -2)
+98
+
+# Test Case 5
+# Trying to add an integer and a string (should raise a TypeError)
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+# Test Case 6
+# Trying to add None (should raise a TypeError)
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+#Test Case 7
+#Trying to add floating int and None (should raise a TypeError)
+>>> add_integer(2.3, None)
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+#Test Case 8
+#Trying to add a string and a integer (should raise a TypeError)
+>>> add_integer("School", 7)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
