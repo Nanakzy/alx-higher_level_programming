@@ -11,4 +11,10 @@ def is_kind_of_class(obj, a_class):
     Returns:
         True if obj is an instance of a_class or its subclasses else False.
     """
-    return isinstance(obj, a_class)
+    if isinstance(obj, a_class):
+        return True
+
+    try:
+        return issubclass(obj.__class__, a_class)
+    except AttributeError:
+        return False  # Handle cases where obj is not an instance of a class
