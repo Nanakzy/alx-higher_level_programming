@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""Defines a BaseGeometry inherited"""
+
+
 class BaseGeometry:
     """
     Class representing base geometry.
