@@ -7,14 +7,11 @@ class BaseGeometry:
     Empty class representing base geometry.
     """
 
+    def area(self):
+        """
+        Public instance method to calculate the area.
 
-def area(self):
-    """
-    Public instance method to calculate the area.
-
-
-    Raises:
-    Exception: area() is not implemented
-    """
-
-    raise Exception('area() is not implemented')
+        Raises:
+            Exception: area() is not implemented
+        """
+        raise Exception('area() is not implemented')
