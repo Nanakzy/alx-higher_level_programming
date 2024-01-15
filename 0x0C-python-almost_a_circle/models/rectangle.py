@@ -6,7 +6,7 @@ from models.base import Base
 class Rectangle(Base):
     """Represent a rectangle."""
 
-    def __init__(self, width: int, height: int, x: int = 0, y: int = 0, id: int = None):
+    def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize a new Rectangle.
 
         Args:
@@ -89,13 +89,7 @@ class Rectangle(Base):
 
     def display(self) -> None:
         """Print the Rectangle using the `#` character."""
-        if self.width == 0 or self.height == 0:
-            print("")
-            return
-
-        [print("") for _ in range(self.y)]
         for _ in range(self.height):
-            [print(" ", end="") for _ in range(self.x)]
             [print("#", end="") for _ in range(self.width)]
             print("")
 
@@ -115,8 +109,12 @@ class Rectangle(Base):
         return {
             key[3:]: value
             for key, value in self.__dict__.items()
-            if key.startswith("__") and key.endswith("__") and key != "__nb_objects"
-        }
+            if (
+                key.startswith("__")
+                and key.endswith("__")
+                and key != "__nb_objects"
+                )
+            }
 
     def __str__(self) -> str:
         """Return the print() and str() representation of the Rectangle."""
