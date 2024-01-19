@@ -23,8 +23,9 @@ class Base:
         """Return the JSON string representation of list_dictionaries."""
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
+
         ordered_dicts = [
-                OrderedDict([('y', obj['y']), ('x', obj['x']), *obj.items()])
+                OrderedDict(obj.items())
                 for obj in list_dictionaries
                 ]
         return json.dumps(ordered_dicts, separators=(',', ':'))
