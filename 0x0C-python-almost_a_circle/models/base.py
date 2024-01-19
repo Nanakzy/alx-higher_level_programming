@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Defines a class"""
 
 import json
@@ -21,13 +22,13 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """Return the JSON string representation of list_dictionaries."""
-        if list_dictionaries is None or len(list_dictionaries) == 0:
-            return "[]"
-
         ordered_dicts = [
-                OrderedDict(obj.items())
-                for obj in list_dictionaries
-                ]
+            OrderedDict([
+                ('y', obj.get('y', 0)),
+                ('x', obj.get('x', 0)),
+                *obj.items()
+            ]) for obj in list_dictionaries
+        ]
         return json.dumps(ordered_dicts, separators=(',', ':'))
 
     @classmethod
@@ -37,7 +38,14 @@ class Base:
             list_objs = []
         filename = "{}.json".format(cls.__name__)
         json_str = cls.to_json_string(
-                [obj.to_dictionary() for obj in list_objs]
+                (obj.to_dictionary() for obj in list_objs)
                 )
         with open(filename, 'w') as file:
             file.write(json_str)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Return the list of dictionaries represented by json_string."""
+        if json_string is None or json_string == "":
+            return []
+        return json.loads(json_string)
