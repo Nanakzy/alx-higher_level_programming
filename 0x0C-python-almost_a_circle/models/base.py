@@ -66,3 +66,18 @@ class Base:
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    @classmethod
+    def load_from_file(cls):
+        """Loads instances from a JSON file and returns a list of instances."""
+        filename = "{}.json".format(cls.__name__)
+        try:
+            with open(filename, 'r') as file:
+                json_str = file.read()
+                list_dictionaries = cls.from_json_string(json_str)
+                return [
+                        cls.create(**dictionary)
+                        for dictionary in list_dictionaries
+                        ]
+        except FileNotFoundError:
+            return []
