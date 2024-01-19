@@ -88,11 +88,12 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self) -> None:
-        """Print the Rectangle using the `#` character taking care of x&y"""
+        """Print the Rectangle using`#` character taking care of x & y."""
         for _ in range(self.y):
             print()
+
         for _ in range(self.height):
-            [print(" " * self.x, end="") for _ in range(self.width)]
+            print(" " * self.x, end="")
             print("#" * self.width)
 
     def update(self, *args: int, **kwargs: int) -> None:
@@ -115,8 +116,8 @@ class Rectangle(Base):
                 key.startswith("__")
                 and key.endswith("__")
                 and key != "__nb_objects"
-                )
-            }
+            )
+        }
 
     def __str__(self) -> str:
         """Return the print() and str() representation of the Rectangle."""
