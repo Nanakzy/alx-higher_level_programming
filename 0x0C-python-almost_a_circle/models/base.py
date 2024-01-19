@@ -2,7 +2,7 @@
 """Defines a class"""
 
 import json
-from collections import OrderedDict  # Add this import
+from collections import OrderedDict
 
 
 class Base:
@@ -21,11 +21,9 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """Return the JSON string representation of list_dictionaries."""
-        ordered_dicts = [
-            OrderedDict([('y', obj['y']), ('x', obj['x']), *obj.items()])
-            for obj in list_dictionaries
-            ]
-        return json.dumps(ordered_dicts, separators=(',', ':'))
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+        return json.dumps(list_dictionaries, indent=0)
 
     @classmethod
     def save_to_file(cls, list_objs):
