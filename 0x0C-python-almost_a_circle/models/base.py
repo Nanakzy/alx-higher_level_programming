@@ -23,7 +23,11 @@ class Base:
         """Return the JSON string representation of list_dictionaries."""
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
-        return json.dumps(list_dictionaries, indent=0)
+        ordered_dicts = [
+                OrderedDict([('y', obj['y']), ('x', obj['x']), *obj.items()])
+                for obj in list_dictionaries
+                ]
+        return json.dumps(ordered_dicts, separators=(',', ':'))
 
     @classmethod
     def save_to_file(cls, list_objs):
