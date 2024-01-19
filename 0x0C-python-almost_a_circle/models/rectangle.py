@@ -110,14 +110,12 @@ class Rectangle(Base):
     def to_dictionary(self) -> dict:
         """Return the dictionary representation of a Rectangle."""
         return {
-            key[3:]: value
-            for key, value in self.__dict__.items()
-            if (
-                key.startswith("__")
-                and key.endswith("__")
-                and key != "__nb_objects"
-            )
-        }
+                'id': self.id,
+                'width': self.width,
+                'height': self.height,
+                'x': self.x,
+                'y': self.y
+                }
 
     def __str__(self) -> str:
         """Return the print() and str() representation of the Rectangle."""
