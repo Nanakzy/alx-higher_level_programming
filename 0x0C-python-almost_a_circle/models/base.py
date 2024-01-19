@@ -49,3 +49,20 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns instance with all attributes already set."""
+        dummy_instance = cls(1, 1)
+        dummy_instance.update(**dictionary)
+        return dummy_instance
+
+    def update(self, *args, **kwargs):
+        """Update instance attrib with given arguments & keyword arguments."""
+        if args:
+            attrs = ['id', 'width', 'height', 'x', 'y']
+            for attr, value in zip(attrs, args):
+                setattr(self, attr, value)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
