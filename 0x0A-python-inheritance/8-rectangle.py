@@ -1,37 +1,6 @@
 #!/usr/bin/python3
 """Defines a Rectangle class"""
-
-
-class BaseGeometry:
-    """
-    Class representing base geometry.
-    """
-
-    def area(self):
-        """
-        Public instance method to calculate the area.
-
-        Raises:
-            Exception: area() is not implemented
-        """
-        raise Exception('area() is not implemented')
-
-    def integer_validator(self, name, value):
-        """
-        Validates the value.
-
-        Args:
-            name (str): The name of the value (assumed to be a string).
-            value (int): The value to be validated.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than or equal to 0.
-        """
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
