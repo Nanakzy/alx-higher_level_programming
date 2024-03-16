@@ -11,8 +11,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    # Use a single execute statement to fetch and print results
-    cursor.execute("SELECT * FROM cities ORDER BY id")
+    cursor.execute("""SELECT cities.id, cities.name, states.name FROM
+                cities INNER JOIN states ON states.id=cities.state_id""")
     cities = cursor.fetchall()
     for city in cities:
         print(city)
