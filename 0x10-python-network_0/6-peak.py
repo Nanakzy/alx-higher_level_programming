@@ -12,21 +12,19 @@ def find_peak(list_of_integers):
       If there are multiple peaks, return any one of them.
       If the list is empty, return None.
     """
-    # Check if the list is empty
-    if not list_of_integers:
+    list_ = list_of_integers
+
+    if list_ == []:
         return None
+    length = len(list_)
 
-    # Initialize pointers for binary search
-    low = 0
-    high = len(list_of_integers) - 1
-
-    # Perform binary search to find the peak
-    while low < high:
-        mid = (low + high) // 2  # Calculate the middle index
-        # Compare the middle element with its right neighbor
-        if list_of_integers[mid] > list_of_integers[mid + 1]:
-            high = mid  # Move towards the left side of the list
+    start, end = 0, length - 1
+    while start < end:
+        mid = start + (end - start) // 2
+        if list_[mid] > list_[mid - 1] and list_[mid] > list_[mid + 1]:
+            return list_[mid]
+        if list_[mid - 1] > list_[mid + 1]:
+            end = mid
         else:
-            low = mid + 1  # Move towards the right side of the list
-
-    return list_of_integers[low]  # Return the peak element found
+            start = mid + 1
+    return list_[start]
